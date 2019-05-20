@@ -1,5 +1,9 @@
 package com.randika.spring.basics.springin5steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component  // To tell Springboot to consider this class is as bean
 public class BinarySearchImpl {
 	//Base steps require for binary search.
 	//Sorting an array
@@ -11,7 +15,8 @@ public class BinarySearchImpl {
 	
 	
 	//Implement loose coupling.
-	private SortAlgorithm sortAlgo;
+	@Autowired // To tell springboot to auto create a bean.
+	private SortAlgorithm sortAlgo; // In other words, SortAlgorithm is a dependency of this class
 	
 	public BinarySearchImpl(SortAlgorithm sortAlgo) {
 		super();
