@@ -9,12 +9,26 @@ public class BinarySearchImpl {
 	// NOTE: this is a high level implementation of binary search (not a full implementation)
 	// With the purpose of tight coupling and loose coupling.
 	
+	
+	//Implement loose coupling.
+	private SortAlgorithm sortAlgo;
+	
+	public BinarySearchImpl(SortAlgorithm sortAlgo) {
+		super();
+		this.sortAlgo = sortAlgo;
+	}
+
+
+
 	public int binarySearch(int[] numbers, int numberToSearch ) {
 		//Sorting an array 
 		// There are many algorithms that can be use to sort.
-		// Right now this logic is tightly coupled with Bubble Sort.
-		BubbleSortAlgorithm sortAlgo = new BubbleSortAlgorithm();
+		
+		// Commented  tightly coupled with Bubble Sort.
+		//BubbleSortAlgorithm sortAlgo = new BubbleSortAlgorithm();
+		
 		int[] sortedNumbers = sortAlgo.sort(numbers);
+		System.out.println("Using sort algorithm: " + sortAlgo);
 		//Search the array
 		//Return result
 		return 3;

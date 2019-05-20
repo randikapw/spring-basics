@@ -1,6 +1,7 @@
 package com.randika.spring.basics.springin5steps;
 
-public class BubbleSortAlgorithm {
+//Implements interface to loose coupling.
+public class BubbleSortAlgorithm implements SortAlgorithm {
 	public int[] sort(int[] arrayToSort) {
 		//Logic for sort using bubble sort
 		//Then return the sorted array
