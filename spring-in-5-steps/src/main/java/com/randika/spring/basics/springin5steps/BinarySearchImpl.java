@@ -18,13 +18,18 @@ public class BinarySearchImpl {
 	@Autowired // To tell springboot to auto create a bean.
 	private SortAlgorithm sortAlgo; // In other words, SortAlgorithm is a dependency of this class
 	
-	public BinarySearchImpl(SortAlgorithm sortAlgo) {
-		super();
+	// Constructor injection commented 
+//	public BinarySearchImpl(SortAlgorithm sortAlgo) {
+//		super();
+//		this.sortAlgo = sortAlgo;
+//	}
+
+
+	// Setter injection
+	public void setSortAlgo(SortAlgorithm sortAlgo) {
 		this.sortAlgo = sortAlgo;
 	}
-
-
-
+	
 	public int binarySearch(int[] numbers, int numberToSearch ) {
 		//Sorting an array 
 		// There are many algorithms that can be use to sort.
