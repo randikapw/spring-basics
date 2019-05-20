@@ -26,9 +26,9 @@ public class BinarySearchImpl {
 
 
 	// Setter injection
-	public void setSortAlgo(SortAlgorithm sortAlgo) {
-		this.sortAlgo = sortAlgo;
-	}
+//	public void setSortAlgo(SortAlgorithm sortAlgo) {
+//		this.sortAlgo = sortAlgo;
+//	}
 	
 	public int binarySearch(int[] numbers, int numberToSearch ) {
 		//Sorting an array 
