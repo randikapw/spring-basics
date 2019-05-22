@@ -1,4 +1,4 @@
-package com.randika.rest.webservices.restfulwebservices;
+package com.randika.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
