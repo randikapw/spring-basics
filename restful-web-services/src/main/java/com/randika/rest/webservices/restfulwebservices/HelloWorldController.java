@@ -14,12 +14,10 @@ public class HelloWorldController {
 		return "Hello World!";
 	}
 	
-	//hello-world-bean : Resource which return object instead of String.
+
 	@GetMapping(path = "/hello-world-bean")
 	public HelloWorldBean helloWorldBean() {
 		return new HelloWorldBean("Hello World!");
 	}
-	// When requesting above resource spring will smoothly convert java object to json.
-	// We don't need to any specific conversion.
 
 }
