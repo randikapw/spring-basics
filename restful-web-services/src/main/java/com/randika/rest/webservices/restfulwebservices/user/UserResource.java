@@ -5,7 +5,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,13 +35,21 @@ public class UserResource {
 	//GET /users/{id}
 	//retreiveUserbyId
 	@GetMapping("/users/{id}")
-	public User retrieveUser(@PathVariable int id) {
+	public Resource<User> retrieveUser(@PathVariable int id) {
 		User user = userService.findOne(id);
 		// Exception Handling
 		if (user == null) {
-			throw new UserNotFoundException("User not found for id - " + id);
+			throw new UserNotFoundException("User not found for id - " + id);			
 		}
-		return user;
+		
+		//Use HATEOAS to bind related link of all users.
+		Resource<User> resource = new Resource<User>(user);
+		
+		// following methods are from ControllerLinkBuilder which was static imported.
+		ControllerLinkBuilder linkForAllUsers =  linkTo(methodOn(this.getClass()).retrieveAllUsers());
+		resource.add(linkForAllUsers.withRel("all-users"));
+		
+		return resource;
 	}
 	
 	//POST /users
